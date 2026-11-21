@@ -1,0 +1,47 @@
+---
+description: 从上游 chen08209/FlClash 同步更新到本 fork，并保住自动更新地址
+alwaysApply: true
+---
+
+# 从源仓库同步
+
+本仓库是 [chen08209/FlClash](https://github.com/chen08209/FlClash) 的 fork。应用内更新必须继续指向 `han3sui/FlClash`，不能被上游覆盖回去。
+
+## 远程
+
+| 远程 | 仓库 |
+| --- | --- |
+| `origin` | `git@github.com:han3sui/FlClash.git` |
+| `upstream` | `git@github.com:chen08209/FlClash.git` |
+
+若缺失：`git remote add upstream git@github.com:chen08209/FlClash.git`
+
+## 用户要求同步时
+
+1. 新中文分支，从已包含本 fork 改动的 `origin/main` 拉出，不要从裸的 `upstream/main` 拉。
+2. `git fetch upstream`
+3. `git merge upstream/main`（不要 rebase，历史更清晰）
+4. `git submodule update --init --recursive`
+5. 合并后立刻核对本 fork 标识（见下），被覆盖就改回来
+6. 不要提交、不要推送，除非用户明确要求
+
+冲突时：功能与 bug 修跟上游；仓库名、发版 CI、README 下载链接、Windows 发布者跟本 fork。
+
+## 合并后必须仍为 han3sui 的位置
+
+- `lib/common/constant.dart`：`const repository = 'han3sui/FlClash';`
+- `android/app/build.gradle.kts`：`applicationId = "com.han3sui.maple"`（不要改回 `com.follow.clash`）
+- `tool/changelog.dart`：`const _repository = 'han3sui/FlClash';`
+- `.github/workflows/build.yaml`：只在 `push.tags: v*` 时跑，只编 Android APK；不要恢复 `branches: '**'`、全平台矩阵、测试 job、Telegram / Homebrew / F-Droid
+- `.github/release_template.md`、`README.md`、`README_zh_CN.md` 的 Release 链接
+- `windows/packaging/exe/make_config.yaml` 的 `publisher` / `publisher_url`
+- `.cursor/` 本目录
+
+`.github/workflows/pages.yaml` 只保留 `workflow_dispatch`，本 fork 不发布官方站点。
+
+## 发版注意
+
+- 普通 commit 不跑编译。发布时：`git tag vX.Y.Z && git push origin vX.Y.Z`
+- tag 只用 `vX.Y.Z` 或 `vX.Y.Z-pre.N`，不要用 `-custom`
+- 版本号必须高于已安装包，否则应用内检查不到更新
+- Android 签名走 GitHub Secrets，不要把 keystore 提交进仓库

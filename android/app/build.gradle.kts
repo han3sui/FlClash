@@ -33,7 +33,8 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.follow.clash"
+        // 安装身份，与 namespace 分开。原 com.follow.clash 会被部分安卓系统拦截。
+        applicationId = "com.han3sui.maple"
         minSdk = flutter.minSdkVersion
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = flutter.versionCode

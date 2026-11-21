@@ -433,7 +433,7 @@
             'tipIntentTitle',
             'tipIntent',
             commandBlock(
-              ['com.follow.clash.action.START', 'com.follow.clash.action.STOP', 'com.follow.clash.action.TOGGLE'].join(
+              ['com.han3sui.maple.action.START', 'com.han3sui.maple.action.STOP', 'com.han3sui.maple.action.TOGGLE'].join(
                 '\n',
               ),
             ),
