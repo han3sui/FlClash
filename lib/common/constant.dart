@@ -134,7 +134,8 @@ const configKey = 'config';
 const systemDnsRecordKey = 'system_dns_record';
 const bootRecordKey = 'boot_record';
 const appliedConfigMd5Key = 'applied_config_md5';
-const repository = 'chen08209/FlClash';
+// 应用内检查更新、下载安装包都走这个仓库的 GitHub Releases。
+const repository = 'han3sui/FlClash';
 const maxMobileWidth = 600;
 const maxLaptopWidth = 840;
 const defaultTestUrl = 'https://www.gstatic.com/generate_204';

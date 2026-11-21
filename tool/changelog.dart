@@ -8,7 +8,8 @@ import 'src/changelog/models.dart';
 import 'src/changelog/render.dart';
 import 'src/changelog/verify.dart';
 
-const _repository = 'chen08209/FlClash';
+// 与 lib/common/constant.dart 的 repository 保持一致，发版说明里的链接指向本仓库。
+const _repository = 'han3sui/FlClash';
 
 Future<void> main(List<String> arguments) async {
   final parser = ArgParser()
