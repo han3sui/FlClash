@@ -68,11 +68,6 @@ brew install --cask flclash
 The tray icon is a StatusNotifierItem. KDE Plasma, XFCE and most panels show it as is; GNOME needs the
 AppIndicator and KStatusNotifierItem Support extension.
 
-**Unattended desktop**
-
-FlClash starts the core only after the disclaimer is accepted. Where nobody can click it, such as a container, set
-`FLCLASH_ACCEPT_DISCLAIMER=1` in the app's environment to accept it on first launch.
-
 ## Usage
 
 **Import a profile from a link.** Opening a link in this form imports the subscription into FlClash. The `clashmeta://`

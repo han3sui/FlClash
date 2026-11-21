@@ -36,6 +36,8 @@ alwaysApply: true
 - `.github/release_template.md`、`README.md`、`README_zh_CN.md` 的 Release 链接
 - `windows/packaging/exe/make_config.yaml` 的 `publisher` / `publisher_url`
 - `.cursor/` 本目录
+- `lib/bootstrap.dart`：不要恢复首次启动免责声明拦截（`_handlerDisclaimer` / `requestDisclaimerConsent`）
+- `lib/views/disclaimer.dart`：只读展示，不要恢复复述声明对话框
 
 `.github/workflows/pages.yaml` 只保留 `workflow_dispatch`，本 fork 不发布官方站点。
 
